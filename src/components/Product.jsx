@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
 
 const Product = ({post}) => {
+
+   const {Cart} = useSelector((state) => state);
+
+
   return (
     <div>
 
@@ -22,7 +28,7 @@ const Product = ({post}) => {
 
        <button>
           {
-             selected ? (<p>Remove From Cart</p>) : (<p>Add to Cart</p>)
+             Cart.some((p) => p.id == post.id ) ? (<p>Remove From Cart</p>) : (<p>Add to Cart</p>)
           }
        </button>
     </div>
