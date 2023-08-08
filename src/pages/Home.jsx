@@ -28,19 +28,22 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex justify-center items-center mt-6 mx-auto max-w-[68rem]">
       {
         loading ? (<Spinner />) : (
             posts.length > 0 ? (
               <div>
-                 {
-                   posts.map( (post) => {
-                    return (
-                      <Product key={post.id} post={post} />
-                    )
-                   })
-                 }
+                <div className="flex flex-wrap justify-between">
+                  {
+                    posts.map( (post) => {
+                      return (
+                        <Product key={post.id} post={post} />
+                      )
+                    })
+                  }
+                </div>
               </div>
+
             ) : (
               <div>No Post Found</div>
             )
