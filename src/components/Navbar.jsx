@@ -1,9 +1,11 @@
 import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
-import { UseSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+  const {cart} = useSelector((state) => state);
   return (
     <div>
       <div className="flex flex-row justify-between">

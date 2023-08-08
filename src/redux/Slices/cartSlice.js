@@ -6,15 +6,15 @@ const initialState = {
 
 export const CartSlice = createSlice({
   name: "cart",
-  initialState, // Make sure to define initialState
+  initialState, 
   reducers: {
-    add: () => {
-      // Implement logic to add item to cart
+    add: (state, action) => {
+      state.items.push(action.payload);
     },
-    remove: () => {
-      // Implement logic to remove item from cart
+    remove: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
     },
-  },
+  }
 });
 
 export const { add, remove } = CartSlice.actions;

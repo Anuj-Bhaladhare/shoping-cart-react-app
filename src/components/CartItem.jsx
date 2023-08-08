@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { FaTrash } from "react-icons/fa"; // Import the specific icon from react-icons/fa
-import { remove } from "../redux/Slices/cartSlice";
+import { remove } from "../redux/Slices/CartSlice";
 
 const CartItem = ({ item, itemIndex }) => {
 

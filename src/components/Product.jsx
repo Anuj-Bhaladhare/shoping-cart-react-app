@@ -1,53 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
-import { add, remove } from "../redux/Slices/cartSlice";
+import { add, remove } from "../redux/Slices/CartSlice";
 
+const Product = ({ post }) => {
+  const { cart } = useSelector((state) => state); // Ensure that cart is an array
+  const dispatch = useDispatch();
 
-const Product = ({post}) => {
+  const addToCart = () => {
+    dispatch(add(post));
+    toast.success("Item Added To Cart");
+  };
 
-   const {cart} = useSelector((state) => state);
-   const dispatch = useDispatch();
+  const removeFromCart = () => {
+    dispatch(remove(post.id));
+    toast.error("Item removed from Cart");
+  };
 
-   const addToCart= () => {
-       dispatch(add(post));
-       toast.success("Item Aided To Cart");
-   }
-
-   const removeFromCart = () => {
-       dispatch(remove(post.id));
-       toast.error("Item removed from Cart");
-   }
-
+//   const isItemInCart = cart.some((item) => item.id === post.id);
+     const[itemCart, setItemCart] = useState(true);
 
   return (
     <div>
-
-       <div>
+      <div>
         <p>{post.title}</p>
-       </div>
+      </div>
 
-       <div>
+      <div>
         <p>{post.description.split(" ").slice(0, 10).join(" ") + "..."}</p>
-       </div>
+      </div>
 
-       <div>
-        <img src={post.image}/>
-       </div>
+      <div>
+        <img src={post.image} alt={post.title} />
+      </div>
 
-       <div>
+      <div>
         <p>${post.price}</p>
-       </div>
+      </div>
 
-       <div>
-          {
-             cart.some((p) => p.id == post.id ) ? 
-             (<button onClick={removeFromCart}>Remove From Cart</button>) : 
-             (<button onClick={addToCart}>Add to Cart</button>)
-          }
-       </div>
+      <div>
+        {itemCart !== true ? (
+          <button onClick={removeFromCart}>Remove From Cart</button>
+        ) : (
+          <button onClick={addToCart}>Add to Cart</button>
+        )}
+      </div>
     </div>
-  )
+  );
 };
 
 export default Product;
