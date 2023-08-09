@@ -15,11 +15,11 @@ const CartItem = ({ item, itemIndex }) => {
 
   return (
     <div>
-      <div>
+      <div className="flex ">
         <div>
-          <img src={item.image} alt="product" />
+          <img className="h-[10rem]" src={item.image} alt="product" />
         </div>
-        <div>
+        <div className="w-[25rem]">
           <h1>{item.title}</h1>
           <p>{item.description}</p> 
           <div>

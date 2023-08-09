@@ -23,9 +23,9 @@ const Product = ({ post }) => {
      const[itemCart, setItemCart] = useState(true);
 
   return (
-       <div className="h-[26rem] rounded-md shadow-2xl w-[20rem] m-4 p-4 flex flex-col justify-center items-center gap-2 hover:scale-110 ">
+       <div className="h-[30rem] mt-9 rounded-md shadow-2xl w-[19rem] m-4 p-4 flex flex-col justify-center items-center gap-3 transition duration-150 ease-out hover:ease-in">
           <div>
-            <p className="font-bold text-[1.2rem]">{post.title.split(" ").slice(0, 10).join(" ") + "..."}</p>
+            <p className="font-bold">{post.title}</p>
           </div>
 
           <div>
@@ -33,7 +33,7 @@ const Product = ({ post }) => {
           </div>
 
           <div>
-            <img className="h-[12rem]" src={post.image} alt={post.title} />
+            <img className="max-w-[15rem] max-h-[14rem] min-w-[10rem] min-h-[12rem]" src={post.image} alt={post.title} />
           </div>
 
           <div className="flex gap-8 justify-center items-center">
@@ -45,7 +45,7 @@ const Product = ({ post }) => {
               {
                   itemCart === true ? 
                   (<button className="bg-green-500 font-bold border border-blue-700 rounded-full p-1 pl-5 pr-5 text-white" onClick={addToCart}>Add to Cart</button>) : 
-                  (<button className="bg-green-500 border border-blue-700 rounded-full p-1 pl-5 pr-5 text-white" onClick={removeFromCart}>Remove From Cart</button>)
+                  (<button className="bg-green-500 border font-bold text-[0.7rem] border-blue-700 rounded-full p-1 pl-5 pr-5 text-white" onClick={removeFromCart}>Remove From Cart</button>)
               }
             </div>
           </div>

@@ -19,29 +19,29 @@ const Cart = () => {
   return (
     <div>
       {Array.isArray(cart) && cart.length > 0 ? (
-        <div>
+        <div className="flex h-screen w-[100vw] justify-between mx-auto max-w-[65rem]">
           <div>
             {cart.map((item, index) => (
               <CartItem item={item} itemIndex={index} key={item.id} />
             ))}
           </div>
-          <div>
+          <div className="flex flex-col justify-between h-[50vh]">
             <div>
-              <p>YOUR CART</p>
-              <h2>SUMMARY</h2>
-              <p>Total items: {cart.length}</p> {/* Fix typo here */}
+              <p className="font-bold text-[2.5rem] text-green-500">YOUR CART</p>
+              <h2 className="font-bold text-[1.2rem]">SUMMARY</h2>
+              <p className="font-bold text-[1.5rem]">Total items: {cart.length}</p> {/* Fix typo here */}
             </div>
             <div>
               <p>Total Amount: ${totalAmount}</p>
-              <button>Checkout Now</button>
+              <button className="bg-blue-500 p-2 pl-5 pr-4 rounded-md font-bold text-[1.2rem] text-white">Checkout Now</button>
             </div>
           </div>
         </div>
       ) : (
-        <div>
-          <p>Your Cart Is Empty</p>
+        <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center gap-5 mt-[-5rem]">
+          <p className="font-bold text-[2rem] text-green-600">Your Cart Is Empty</p>
           <NavLink to="/">
-            <button>Shop Now</button>
+            <button className="bg-blue-500 p-2 pl-5 pr-4 rounded-md font-bold text-[1.2rem] text-white">Shop Now</button>
           </NavLink>
         </div>
       )}
