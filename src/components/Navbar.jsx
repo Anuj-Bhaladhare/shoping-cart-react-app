@@ -24,11 +24,12 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink to="/cart">
-            <div className="">
+            <div className="relative">
                <FaCartArrowDown className="text-white font-bold text-[1.5rem]"/>
                {
                 cart.length > 0 &&
-                <span>
+                <span className="absolute -top-1 -right-2 bg-green-600 text-xs w-5 h-5 flex 
+                justify-center items-center animate-bounce rounded-full text-white">
                   {cart.length}
                 </span>
                }

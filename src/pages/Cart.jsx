@@ -25,15 +25,15 @@ const Cart = () => {
               <CartItem item={item} itemIndex={index} key={item.id} />
             ))}
           </div>
-          <div className="flex flex-col justify-between h-[50vh]">
+          <div className="flex flex-col p-6 justify-between h-[80vh]">
             <div>
               <p className="font-bold text-[2.5rem] text-green-500">YOUR CART</p>
               <h2 className="font-bold text-[1.2rem]">SUMMARY</h2>
               <p className="font-bold text-[1.5rem]">Total items: {cart.length}</p> {/* Fix typo here */}
             </div>
             <div>
-              <p>Total Amount: ${totalAmount}</p>
-              <button className="bg-blue-500 p-2 pl-5 pr-4 rounded-md font-bold text-[1.2rem] text-white">Checkout Now</button>
+              <p className="font-bold">Total Amount: ${totalAmount}</p>
+              <button className="bg-blue-500 p-2 pl-12 pr-12 mt-3 rounded-md font-bold text-[1.2rem] text-white">Checkout Now</button>
             </div>
           </div>
         </div>
